@@ -1,0 +1,67 @@
+﻿@page
+@model Hotel_Reservation_Project.Pages.Categories.IndexModel
+
+@if (TempData["success"] != null)
+{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script type="text/javascript">
+            toastr.success('@TempData["success"]');
+        </script>
+}        
+
+<div class="container p-2">
+    <div class="row pt-3">
+        <div class="col-6">
+            <h2 class="text-primary">Reservation List</h2>
+        </div>
+        <div class="col-6 text-end" >
+            <a asp-page="create" class="btn btn-primary">
+                <i class="bi bi-house-add-fill"></i> &nbsp;
+                Add New Reservation
+            </a>
+        </div>
+    </div>
+
+    <br /><br />
+
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>CNP</th>
+            <th>Phone Number</th>
+            <th>Room Number</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+            @foreach (var obj in Model.Info)
+            {
+                    <tr>
+                        <td width=50%>@obj.FirstName</td>
+                        <td width=50%>@obj.LastName</td>
+                        <td width=50%>@obj.CNP</td>
+                        <td width=50%>@obj.PhoneNumber</td>
+                        <td width=50%>@obj.RoomNumber</td>
+                        <td width=50%>@obj.StartDate</td>
+                        <td width=50%>@obj.EndDate</td>
+                        <td>
+                            <div class="w-75 btn-group" role="group">
+                            <a asp-page="Edit" asp-route-id="@obj.Id" class="btn btn-primary mx-2">
+                                <i class="bi bi-pencil-square"></i>
+                            </a>
+                                    <a asp-page="Delete" asp-route-id="@obj.Id" class="btn btn-danger mx-2">
+                                    <i class="bi bi-trash-fill"></i>
+                                </a>
+                                </div>
+                        </td>
+                    </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

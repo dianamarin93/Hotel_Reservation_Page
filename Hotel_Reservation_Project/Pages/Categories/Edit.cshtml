@@ -1,0 +1,63 @@
+﻿@page
+@model Hotel_Reservation_Project.Pages.Categories.EditModel
+
+<form method="post">
+    <input hidden asp-for="Info.Id"/>
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary pl-3">Edit Reservation</h2>
+            <hr/>
+        </div>
+        <div asp-validation-summary="All"></div>
+        <div class="mb-3">
+            First Name:
+            <input asp-for="Info.FirstName" class="form-control"/>
+            <span asp-validation-for="Info.FirstName" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            Last Name:
+            <input asp-for="Info.LastName" class="form-control"/>
+            <span asp-validation-for="Info.LastName" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            CNP:
+            <input asp-for="Info.CNP" class="form-control"/>
+            <span asp-validation-for="Info.CNP" class="text-danger"></span>
+
+        </div>
+        <div class="mb-3">
+            Phone Number:
+            <input asp-for="Info.PhoneNumber" class="form-control"/>
+            <span asp-validation-for="Info.PhoneNumber" class="text-danger"></span>
+
+        </div>
+        <div class="mb-3">
+            Room Number:
+            <input asp-for="Info.RoomNumber" class="form-control"/>
+            <span asp-validation-for="Info.RoomNumber" class="text-danger"></span>
+
+        </div>
+        <div class="mb-3">
+            Start Date:
+            <input asp-for="Info.StartDate" class="form-control"/>
+            <span asp-validation-for="Info.StartDate" class="text-danger"></span>
+
+        </div>
+        <div class="mb-3">
+            End Date:
+            <input asp-for="Info.EndDate" class="form-control"/>
+            <span asp-validation-for="Info.EndDate" class="text-danger"></span>
+
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 150px;">Update</button>
+        <a asp-page="Index" class="btn btn-secondary" style="width: 150px;">Back To List</a>
+
+    </div>
+</form>
+
+@section Scripts
+{
+    @{
+        <partial name="Shared/_ValidationScriptsPartial"/>
+    }
+}
